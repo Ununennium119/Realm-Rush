@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3745232383454782416}
   - component: {fileID: 9052686848765578014}
+  - component: {fileID: 2859846992541193601}
   m_Layer: 0
   m_Name: Ballista
   m_TagString: Untagged
@@ -47,7 +48,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boltPrefab: {fileID: 5402428007449864357, guid: 0a992a29243b22648850ad9d99bc9238, type: 3}
+  boltObjectPool: {fileID: 2859846992541193601}
   weapon: {fileID: 3605906482670404637}
+  fireDelay: 1
+--- !u!114 &2859846992541193601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820420468125473655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd9a192d1d06904e8ecbf49c6eb1fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 5402428007449864357, guid: 0a992a29243b22648850ad9d99bc9238, type: 3}
 --- !u!1 &5529557952522295078
 GameObject:
   m_ObjectHideFlags: 0

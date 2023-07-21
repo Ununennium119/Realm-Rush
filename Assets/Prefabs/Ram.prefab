@@ -92,14 +92,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2747510808876877946}
+  - component: {fileID: 1404583808430419558}
   - component: {fileID: 8637904680461832795}
   - component: {fileID: -6514877310899826134}
-  - component: {fileID: -3018803742463532853}
   - component: {fileID: 5475653046254858083}
   - component: {fileID: 3418688370642965840}
   m_Layer: 0
   m_Name: Ram
-  m_TagString: Untagged
+  m_TagString: Ram
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1404583808430419558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694212898093548072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59873a0fd71f024da5399770a8b6cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killReward: 25
+  stealAmount: 25
+  enemyReachedTreasuryEvent: {fileID: 11400000, guid: 466994f4ae89111439592ddaf8fd3c51, type: 2}
 --- !u!114 &8637904680461832795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +158,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 1
+  enemyReachedTreasureEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1404583808430419558}
+        m_TargetAssemblyTypeName: Ram.RamController, Assembly-CSharp
+        m_MethodName: OnReachedTreasure
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-6514877310899826134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,25 +185,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b42f63e9fab49442965d625c2d49d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3018803742463532853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7694212898093548072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a290be41b9495b4d8b279ed5c01664c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 466994f4ae89111439592ddaf8fd3c51, type: 2}
-  onEventTriggered:
+  maxHitPoint: 5
+  currentHitPoint: 0
+  onDeathEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -6514877310899826134}
-        m_TargetAssemblyTypeName: EnemyHealth, Assembly-CSharp
-        m_MethodName: OnEnemyHit
+      - m_Target: {fileID: 1404583808430419558}
+        m_TargetAssemblyTypeName: Ram.RamController, Assembly-CSharp
+        m_MethodName: OnDeath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

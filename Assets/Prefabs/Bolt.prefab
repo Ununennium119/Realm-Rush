@@ -93,12 +93,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4734012231251653151}
   - component: {fileID: 5385270361275395124}
-  - component: {fileID: 6146863996556370627}
   - component: {fileID: 3573854815440104290}
   - component: {fileID: 3982658668493311436}
   m_Layer: 0
   m_Name: Bolt
-  m_TagString: Untagged
+  m_TagString: Bolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,20 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  enemyHitEvent: {fileID: 11400000, guid: 466994f4ae89111439592ddaf8fd3c51, type: 2}
---- !u!114 &6146863996556370627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5402428007449864357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e80418d663a6f4094d6b36463c78de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 5
+  lifeTime: 3
 --- !u!65 &3573854815440104290
 BoxCollider:
   m_ObjectHideFlags: 0
