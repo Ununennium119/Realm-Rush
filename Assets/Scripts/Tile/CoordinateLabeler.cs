@@ -47,16 +47,12 @@ namespace Tile
 
         private void UpdateLabel()
         {
-            if (!_areLabelsEnabled)
-            {
-                _coordinateLabel.text = "";
-                return;
-            }
+            UpdateLabelText();
+            UpdateLabelColor();
+        }
 
-            // Update Text
-            _coordinateLabel.text = $"{_coordinates.x}, {_coordinates.y}";
-
-            // Update Color
+        private void UpdateLabelColor()
+        {
             if (!_wayPoint.IsPlaceable)
             {
                 _coordinateLabel.color = notPlaceableColor;
@@ -69,6 +65,11 @@ namespace Tile
             {
                 _coordinateLabel.color = defaultColor;
             }
+        }
+
+        private void UpdateLabelText()
+        {
+            _coordinateLabel.text = !_areLabelsEnabled ? "" : $"{_coordinates.x}, {_coordinates.y}";
         }
 
         private void UpdateName()
