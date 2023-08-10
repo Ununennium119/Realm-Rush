@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Grid
 {
@@ -8,8 +9,8 @@ namespace Grid
         [Tooltip("Size of the grid.")] [SerializeField]
         private Vector2Int gridSize;
 
-        [Tooltip("Should match editor's grid snapping size")] [SerializeField]
-        private Vector2Int gridSnap;
+        [FormerlySerializedAs("GridSnap")] [Tooltip("Should match editor's grid snapping size")] [SerializeField]
+        public Vector2Int gridSnap;
 
         private readonly Vector2Int[] _directions =
         {

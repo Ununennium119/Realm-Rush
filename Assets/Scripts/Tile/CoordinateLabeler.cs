@@ -1,3 +1,4 @@
+using Grid;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -24,9 +25,12 @@ namespace Tile
 
         private Tile _tile;
 
+        private GridController _gridController;
+
 
         private void Awake()
         {
+            _gridController = FindObjectOfType<GridController>();
             _tile = GetComponentInParent<Tile>();
             _coordinateLabel = GetComponent<TextMeshPro>();
         }
@@ -48,8 +52,8 @@ namespace Tile
         private void UpdateCoordinates()
         {
             var position = transform.position;
-            _coordinates.x = Mathf.RoundToInt(position.x / EditorSnapSettings.move.x);
-            _coordinates.y = Mathf.RoundToInt(position.z / EditorSnapSettings.move.z);
+            _coordinates.x = Mathf.RoundToInt(position.x / _gridController.gridSnap.x);
+            _coordinates.y = Mathf.RoundToInt(position.z / _gridController.gridSnap.y);
         }
 
         private void UpdateLabel()
