@@ -32,6 +32,12 @@ namespace Tile
 
         private void Update()
         {
+            if (Application.isPlaying)
+            {
+                _coordinateLabel.text = "";
+                return;
+            }
+            
             UpdateCoordinates();
             UpdateLabel();
             UpdateName();

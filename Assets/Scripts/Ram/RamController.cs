@@ -33,6 +33,7 @@ namespace Ram
         public void OnReachedTreasure()
         {
             enemyReachedTreasuryEvent.Trigger(stealAmount);
+            gameObject.SetActive(false);
         }
     }
 }

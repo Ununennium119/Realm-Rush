@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoint: 5
   currentHitPoint: 0
+  difficultyRamp: 1
   onDeathEvent:
     m_PersistentCalls:
       m_Calls:
