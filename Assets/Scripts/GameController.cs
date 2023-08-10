@@ -4,6 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    [Tooltip("The ram's start position.")] [SerializeField]
+    public Vector3 enemyBasePosition;
+
+    [Tooltip("The ram's final destination.")] [SerializeField]
+    public Vector3 playerBasePosition;
+
     private TreasuryController _treasuryController;
 
 

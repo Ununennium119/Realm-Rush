@@ -17,16 +17,17 @@ namespace Tile
         [Tooltip("The color of tile when the tile is placeable and is hovered.")] [SerializeField]
         private Color hoveredColor;
 
-        private WayPoint _wayPoint;
+        private bool _areLabelsEnabled = true;
         private TextMeshPro _coordinateLabel;
 
         private Vector2Int _coordinates;
-        private bool _areLabelsEnabled = true;
+
+        private Tile _tile;
 
 
         private void Awake()
         {
-            _wayPoint = GetComponentInParent<WayPoint>();
+            _tile = GetComponentInParent<Tile>();
             _coordinateLabel = GetComponent<TextMeshPro>();
         }
 
@@ -37,7 +38,7 @@ namespace Tile
                 _coordinateLabel.text = "";
                 return;
             }
-            
+
             UpdateCoordinates();
             UpdateLabel();
             UpdateName();
@@ -59,18 +60,12 @@ namespace Tile
 
         private void UpdateLabelColor()
         {
-            if (!_wayPoint.IsPlaceable)
-            {
+            if (!_tile.IsPlaceable)
                 _coordinateLabel.color = notPlaceableColor;
-            }
-            else if (_wayPoint.IsHovered)
-            {
+            else if (_tile.IsHovered)
                 _coordinateLabel.color = hoveredColor;
-            }
             else
-            {
                 _coordinateLabel.color = defaultColor;
-            }
         }
 
         private void UpdateLabelText()
@@ -86,10 +81,7 @@ namespace Tile
 
         public void OnToggleLabels(InputAction.CallbackContext context)
         {
-            if (context.performed)
-            {
-                _areLabelsEnabled = !_areLabelsEnabled;
-            }
+            if (context.performed) _areLabelsEnabled = !_areLabelsEnabled;
         }
     }
 }

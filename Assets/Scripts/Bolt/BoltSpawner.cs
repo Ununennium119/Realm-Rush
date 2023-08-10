@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Bolt
 {
-    public class BoltSpawner: MonoBehaviour
+    public class BoltSpawner : MonoBehaviour
     {
         [Tooltip("Insert bolt object pool here.")] [SerializeField]
         private ObjectPool boltObjectPool;

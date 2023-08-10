@@ -20,16 +20,6 @@ namespace Ram
         private UnityEvent onDeathEvent;
 
 
-        public void OnAfterDeserialize()
-        {
-            _maxHitPoint = maxHitPoint;
-        }
-
-        public void OnBeforeSerialize()
-        {
-        }
-
-
         private void OnEnable()
         {
             currentHitPoint = _maxHitPoint;
@@ -45,6 +35,16 @@ namespace Ram
 
             _maxHitPoint += difficultyRamp;
             onDeathEvent.Invoke();
+        }
+
+
+        public void OnAfterDeserialize()
+        {
+            _maxHitPoint = maxHitPoint;
+        }
+
+        public void OnBeforeSerialize()
+        {
         }
     }
 }

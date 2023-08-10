@@ -11,7 +11,7 @@ namespace Treasury
         [Tooltip("The current money in the treasury.")] [SerializeField]
         private int currentGold;
 
-        [SerializeField] private TextMeshProUGUI goldText; 
+        [SerializeField] private TextMeshProUGUI goldText;
 
 
         private void Start()

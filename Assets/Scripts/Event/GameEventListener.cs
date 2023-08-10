@@ -17,6 +17,7 @@ namespace Event
         {
             gameEvent.RemoveListener(this);
         }
+
         public void OnEventTriggered()
         {
             onEventTriggered.Invoke();

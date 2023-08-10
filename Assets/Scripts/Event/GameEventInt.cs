@@ -10,10 +10,7 @@ namespace Event
 
         public void Trigger(int value)
         {
-            for (var i = _listeners.Count - 1; i >= 0; i--)
-            {
-                _listeners[i].OnEventTriggered(value);
-            }
+            for (var i = _listeners.Count - 1; i >= 0; i--) _listeners[i].OnEventTriggered(value);
         }
 
         public void AddListener(GameEventListenerInt listener)

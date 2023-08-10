@@ -10,12 +10,6 @@ namespace Bolt
         [Tooltip("The bolt will disable after passing lifeTime seconds.")] [SerializeField]
         private float lifeTime = 3f;
 
-
-        private void OnEnable()
-        {
-            Invoke(nameof(DisableBolt), lifeTime);
-        }
-
         private void Update()
         {
             var boltTransform = transform;
@@ -23,12 +17,15 @@ namespace Bolt
         }
 
 
+        private void OnEnable()
+        {
+            Invoke(nameof(DisableBolt), lifeTime);
+        }
+
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Ram"))
-            {
-                gameObject.SetActive(false);
-            }
+            gameObject.SetActive(false);
         }
 
 

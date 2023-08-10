@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 1404583808430419558}
   - component: {fileID: 8637904680461832795}
   - component: {fileID: -6514877310899826134}
+  - component: {fileID: 6393473214229330570}
   - component: {fileID: 5475653046254858083}
   - component: {fileID: 3418688370642965840}
   m_Layer: 0
@@ -147,17 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f71dbe8e22db444b76d959a5e8731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   speed: 1
+  sourcePosition: {x: 30, y: 0, z: 20}
+  destinationPosition: {x: 120, y: 0, z: 40}
   enemyReachedTreasureEvent:
     m_PersistentCalls:
       m_Calls:
@@ -194,6 +187,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1404583808430419558}
         m_TargetAssemblyTypeName: Ram.RamController, Assembly-CSharp
         m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6393473214229330570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694212898093548072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a290be41b9495b4d8b279ed5c01664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: fa60fd09ed5c5b14fb1b354733d7b6fa, type: 2}
+  onEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8637904680461832795}
+        m_TargetAssemblyTypeName: Ram.RamMover, Assembly-CSharp
+        m_MethodName: OnBallistaSpawned
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

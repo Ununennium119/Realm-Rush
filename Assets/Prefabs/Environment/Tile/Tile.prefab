@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8080951779050358227}
   - component: {fileID: 1327673238717151309}
   - component: {fileID: 1917966597850562781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CoordinateText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 7964222313092332616}
   - component: {fileID: 5067031867085653250}
   - component: {fileID: 8607518540592488854}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 4817832377674400085}
   - component: {fileID: 7908918434577612588}
   - component: {fileID: 6200672769736229065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

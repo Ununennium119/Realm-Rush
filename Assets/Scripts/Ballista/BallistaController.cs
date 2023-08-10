@@ -15,10 +15,14 @@ namespace Ballista
         [Tooltip("The range in which ballista can shot.")] [SerializeField]
         private float range = 15f;
 
+        [Tooltip("The time between building different parts of ballista.")] [SerializeField]
+        private float buildDelay = 1f;
+
         private BoltSpawner _boltSpawner;
+        private bool _fire;
+        private bool _isBuilding;
         private Transform _target;
         private bool _targetPresent;
-        private bool _fire;
 
 
         private void Awake()
@@ -33,15 +37,25 @@ namespace Ballista
 
         private void Update()
         {
-            if (!IsTargetValid())
+            if (!IsTargetValid()) SelectTarget();
+
+            if (IsTargetValid()) LookAtTarget();
+        }
+
+
+        public IEnumerator Build()
+        {
+            var waitForSeconds = new WaitForSeconds(buildDelay);
+            _isBuilding = true;
+            foreach (Transform child in transform) child.gameObject.SetActive(false);
+
+            foreach (Transform child in transform)
             {
-                SelectTarget();
+                child.gameObject.SetActive(true);
+                yield return waitForSeconds;
             }
 
-            if (IsTargetValid())
-            {
-                LookAtTarget();
-            }
+            _isBuilding = false;
         }
 
 
@@ -70,7 +84,7 @@ namespace Ballista
         {
             return _target != null && _target.gameObject.activeSelf && IsTargetInRange(_target);
         }
-        
+
         private void LookAtTarget()
         {
             weapon.LookAt(_target.position + Vector3.up * weapon.position.y);
@@ -79,12 +93,17 @@ namespace Ballista
         private IEnumerator Fire()
         {
             var waitForSeconds = new WaitForSeconds(fireDelay);
+            yield return new WaitUntil(() => !_isBuilding);
             while (true)
             {
-                yield return waitForSeconds;
-                if (!IsTargetValid()) continue;
-                
+                if (!IsTargetValid())
+                {
+                    yield return waitForSeconds;
+                    continue;
+                }
+
                 _boltSpawner.SpawnBolt(weapon.position, weapon.rotation);
+                yield return waitForSeconds;
             }
         }
     }
