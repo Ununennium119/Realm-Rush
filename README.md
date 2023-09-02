@@ -1,2 +1,3 @@
 # Realm-Rush
-A simple tower defense game made by unity.
+
+A simple tower defense game developed in unity.
